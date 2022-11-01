@@ -1,0 +1,128 @@
+.tarjetas{
+    margin-top: 15rem;
+}
+
+.card{
+    position:static;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+}
+
+.card:hover{
+    box-shadow: 0 0 10px 3px  #0e0532;
+}
+
+.imgBox{
+    position: static;
+    /* min-width: 48%;
+    max-height: 100%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.details{
+    position:static;
+    min-width: 45px;
+    background: #4ba9e9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    padding: 50px;
+    color: rgb(4, 26, 96);
+}
+
+.card ul{
+    display: flex;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.card ul li{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top:  0.5rem;
+    flex-wrap: wrap;
+}
+
+.card ul li:hover{
+    background-color: #fff;
+}
+
+.titulo{
+    font-size: 30px;
+}
+
+.descripcion{
+    font-size: 18px;
+}
+
+.precio{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px ;
+}
+
+
+@media (max-width:719px) {
+.tarjetas{
+    margin-top: 20rem;
+}
+}
+
+@media (max-width:945px) {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.8fr 0.8fr;
+        grid-template-areas: "card"
+                             "details";
+        
+    }
+.card{
+    grid-area: card;
+}
+
+.details{
+    grid-area: details;
+}
+}
+
+@media (max-width:471px){
+    .card  ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .precio{
+        margin-top: 2rem;
+    }
+} 
+
+@media (max-width:390px) {
+    .tarjetas{
+        margin-top: 22rem;
+    }
+    }
+
+@media (max-width:360px){
+    .details{
+        width: 520px;
+    }
+    /* .imgBox{
+        margin-left: 6rem;
+    } */
+}

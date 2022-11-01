@@ -1,0 +1,48 @@
+.contador{
+    max-width: 40rem;
+    height: 70px;
+    font-size: 30px;
+    margin-top: 2rem;
+    padding: 20px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border: 2px solid white;
+}
+
+.h6{
+    font-size: 15px; 
+    margin-left: 20px;
+    color: rgb(4, 26, 96);
+}
+
+.textoYBoton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnAgregar{
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 15px;
+    background: #277cb4;
+    border: 2px solid #fff;
+    border-radius: 8px 8px 8px 8px;
+    color: rgb(4, 26, 96)
+}
+
+.btn-agregar:hover{
+    background-color: aliceblue;
+}
+
+
+
+@media (max-width:395px) {
+    .contador{
+        border: none;
+        margin-top: 4rem;
+    }  
+}
+

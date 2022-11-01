@@ -1,0 +1,73 @@
+.title{
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    background-color: #b3d4e1;
+}
+
+.subtituloH2{
+    color: #D2001A;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.subtituloH3{
+    color: #EC0101;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.contenedorTenisAdidas{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    top:  0rem;
+}
+
+.cardAdidas{
+    width: 21rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px 3px  #1A4D2E;
+}
+
+.cardAdidas img{
+    width: 100%;
+}
+
+.boton{
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 10px 20px 0;
+    border: 1px solid #ccc;
+    background: rgb(61, 139, 85);
+    border-radius: 8px 8px 8px 8px;
+}
+
+.boton:hover{
+    background: #ddd;
+}
+
+
+@media (max-width:880px) {
+    .title{
+        margin-top: 15rem;
+    }
+
+}

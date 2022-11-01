@@ -1,0 +1,255 @@
+
+.cajaForm{
+    margin-top: 15rem;
+    max-width: 85%;
+}
+
+
+.buttonEnviar {
+  cursor: pointer; 
+}
+
+
+.myForm{
+    text-align: center;  
+}
+
+
+.myForm input {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 85%;
+    line-height: 1.5;
+    padding: 15px 10px;
+    border: 1px solid var(--borderFormEls);
+    color: var(--white);
+    background: #F0D78C;
+    box-shadow: 0 1px 10px #08a05c;
+  }
+
+  
+  .myForm button {
+    margin-top: 2rem;
+    width: 30%;
+    padding: 15px 10px;
+    border: 1px solid var(--borderFormEls);
+    background: #F0D78C;
+    box-shadow: 0 1px 10px #08a05c
+  }
+
+  
+.myForm input:focus,
+.myForm button:focus {
+    background: #E6D2AA;
+}
+ 
+
+.cajaTextoCompra{
+    margin-top: 17rem;
+    text-align: center;
+}
+
+ 
+.parrafocompra1{
+    font-size: 1.5rem;
+}
+
+.parrafocompra2{
+    font-size: 1.5rem;
+}
+
+.strongId{
+    color: red;
+    font-size: 2rem;
+}
+
+.btnAceptar{
+    margin-top: 2rem;
+    display: inline-block;
+    padding: .5rem 2rem;
+    font-size: 1.4rem;
+    background-color: #08a05c;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.btnAceptar:hover{
+    background-color: #0f5c39;
+    color: white;} 
+
+
+
+
+
+
+
+
+
+
+
+    .body {
+        font-family: 'Roboto', sans-serif!important;
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    
+    .mainscreen
+    {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color:#963E7B;
+    }
+    
+    .card {
+        width: 60rem;
+        margin: auto;
+        background: white;
+        position:center;
+        align-self: center;
+        /* top: 50rem; */
+        margin-top: 10rem;
+        border-radius: 1.5rem;
+        box-shadow: 4px 3px 20px #3535358c;
+        display:flex;
+        flex-direction: row;
+        
+    }
+    
+    .leftside {
+        background: #030303;
+        width: 25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 1.5rem;
+        border-bottom-left-radius: 1.5rem;
+    }
+    
+    .product {
+        object-fit: cover;
+        width: 20em;
+        height: 20em;
+        border-radius: 100%;
+    }
+    
+    .rightside {
+        background-color: #ffffff;
+        width: 35rem;
+        border-bottom-right-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+        padding: 1rem 2rem 3rem 3rem;
+    }
+    
+    .p{
+        display:block;
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin: .8rem 0;
+    }
+    
+    /* .inputbox */
+    .card input 
+    {
+        color:#030303;
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 1.5px solid #ccc;
+        margin-bottom: 1rem;
+        border-radius: 0.3rem;
+        font-family: 'Roboto', sans-serif;
+        color: #615a5a;
+        font-size: 1.1rem;
+        font-weight: 500;
+      outline:none;
+    }
+
+    .inputbox{
+        color:#030303;
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 1.5px solid #ccc;
+        margin-bottom: 1rem;
+        border-radius: 0.3rem;
+        font-family: 'Roboto', sans-serif;
+        color: #615a5a;
+        font-size: 1.1rem;
+        font-weight: 500;
+      outline:none;
+    }
+    
+    .expcvv {
+        display:flex;
+        justify-content: space-between;
+        padding-top: 0.6rem;
+    }
+    
+    .expcvv_text{
+        padding-right: 1rem;
+    }
+    .expcvv_text2{
+        padding:0 1rem;
+    }
+
+    .errorsP{
+        margin-top: -3px;
+        font-size: 16px;
+        color: red;
+    }
+    
+    .button{
+        background: linear-gradient(
+    135deg
+    , #753370 0%, #298096 100%);
+        padding: 15px;
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        width:100%;
+        letter-spacing: .11rem;
+        outline:none;
+    }
+    
+    .button:hover
+    {
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: 3px 3px 6px #38373785;
+    }
+
+
+    @media (max-width:1000px) {
+        .card{
+            margin-top: 15rem;
+        }
+        }
+    
+    @media only screen and (max-width: 1000px) {
+        .card{
+            flex-direction: column;
+            width: auto;
+          
+        }
+    
+        .leftside{
+            width: 100%;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+          border-top-right-radius:0;
+          border-radius:0;
+        }
+    
+        .rightside{
+            width:auto;
+            border-bottom-left-radius: 1.5rem;
+            padding:0.5rem 3rem 3rem 2rem;
+          border-radius:0;
+        }
+    }
