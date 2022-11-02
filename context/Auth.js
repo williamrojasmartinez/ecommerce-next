@@ -12,10 +12,11 @@ function AuthProvider(props) {
    const [usuarioActual, setUsuarioActual] = useState({})
 
     useEffect(() => {
-        onAuthStateChanged(auth,(user) => {
-            setUsuarioActual(user)
-        })
+         onAuthStateChanged(auth,(user) => {
+             setUsuarioActual(user)
+         })
     },[])
+
 
     const  crear = async (email, password) => {
         const auth = getAuth();

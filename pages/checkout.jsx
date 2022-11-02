@@ -6,12 +6,13 @@ import Link from 'next/link';
 import style from '../styles/Checkout.module.css'
 import Layout from '../components/Layout';
 import swal from 'sweetalert';
+import withAuth from '../components/withAuth';
 
 
 
 
 
-function Checkout() {
+function Checkout(props) {
   
 
     const [comprador, setComprador] =useState({})
@@ -204,4 +205,5 @@ function Checkout() {
   )
 }
 
-export default Checkout
+//export default Checkout   
+export default withAuth(Checkout)

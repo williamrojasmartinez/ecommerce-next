@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import { AuthContext } from '../context/Auth'
 import swal from 'sweetalert';
 import style from '../styles/Checkout.module.css'
+import withAuth from '../components/withAuth';
 
 function Login() {
 
@@ -110,4 +111,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login 
