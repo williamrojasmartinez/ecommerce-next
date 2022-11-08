@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import Cookies from "js-cookie"; 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase'
 
@@ -11,9 +12,10 @@ function AuthProvider(props) {
 
    const [usuarioActual, setUsuarioActual] = useState({})
 
-    useEffect(() => {
+    useEffect(() => { 
          onAuthStateChanged(auth,(user) => {
-             setUsuarioActual(user)
+             setUsuarioActual(user);
+             Cookies.set("user", JSON.stringify(user));
          })
     },[])
 

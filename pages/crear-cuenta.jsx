@@ -2,95 +2,34 @@ import { useRouter } from 'next/router'
 import React, { useContext, useState } from 'react'
 import Layout from '../components/Layout'
 import { AuthContext } from '../context/Auth'
-import swal from 'sweetalert';
 import style from '../styles/Checkout.module.css'
+import { useForm } from 'react-hook-form'
 
 
 function CrearCuenta() {
 
  
+  const {register, formState: { errors }, handleSubmit} = useForm();
+
    const router = useRouter()
  
    const { crear } = useContext(AuthContext)
  
-   const [nombre, setNombre] = useState("")
-   const [email, setEmail] = useState("")
-   const [password, setPassword] = useState("")
  
- 
-   const handleChangeNombre = (e) => {
-     e.preventDefault()
-     setNombre(e.target.value)
-    
-   }
- 
-   const handleChangeCorreo = (e) => {
-     e.preventDefault()
-     setEmail(e.target.value)
-    
-   }
- 
-   const handleChangeContrasena = (e) => {
-     e.preventDefault()
-     setPassword(e.target.value)
-   
-   }
- 
- 
-   const onSubmit = async (e) => {
-     e.preventDefault()
+   const onSubmit = async (data) => {
+     const {nombre, email, password} = data
      console.log(nombre, email, password)
- 
- 
-     const name = document.querySelector(".inputNombre").value
-         const expresionNom = /^[a-zA-ZÀ-ÿ\s]{3,20}$/
-         if (!expresionNom.test(name)) {
-           swal({
-             text: "Para el Nombre solo se permite letras y espacios (entre 3 y 20 letras)",
-             icon: "warning"
-           })
-         return false
-       }
- 
- 
-       const correo = document.querySelector(".inputEmail").value
-         const expresionCorreo = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-         if (!expresionCorreo.test(correo)) {
-           swal({
-             text: "El correo electrónico debe empezar por el nombre del usuario, Seguido por el símbolo de la arroba '@' y Por último el nombre del dominio del correo. ejemplo: usuario@dominio.com",
-             icon: "warning"
-           })
-         return false
-       }
- 
- 
-       const pass = document.querySelector(".inputPass").value
-         const expresionPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/
-         if (!expresionPass.test(pass)) {
-           swal({
-             text: "La contraseña debe llevar al menos una letra minuscula, una mayuscula, un número, contener al menos 6 caracteres y no permite espacios",
-             icon: "warning"
-           })
-         return false
-       }
- 
  
  
      try {
        await crear(email, password)
-         setNombre("")
-         setEmail("")
-         setPassword("")
-        router.push("/checkout")
+        router.push("/login")
      } catch (error) {
        console.log(error);
        swal({
-        text: "El correo ya existe. Intenta con otro correo.",
-        icon: "warning"
+        text: "La cuenta ya existe.",
+        icon: "warning",
       })
-        setNombre("")
-         setEmail("")
-         setPassword("")
      }
  
     }
@@ -98,39 +37,47 @@ function CrearCuenta() {
    return (
      <div className={style.cajaForm}>
        <Layout>
-        <form onSubmit={onSubmit} className={style.myForm}>
+        <form onSubmit={handleSubmit(onSubmit)} className={style.myForm}>
          
          <h2>Crear Cuenta</h2>
            
          <input className='inputNombre'
                type="text" 
                placeholder="Nombre" 
-               name="nombre"id="nombre"
-               required
-               value={nombre}
-               onChange={handleChangeNombre} 
+               {...register('name', { 
+                required: true,
+                pattern: /^[a-zA-ZÀ-ÿ\s]{3,20}$/,
+                maxLength: 20,
+                minLength: 3
+                 })} 
                />
+                {errors.name?.type === 'required' && <p className={style.errorsP}>El campo es obligatorio</p>}
+                {errors.name?.type === 'pattern' && <p className={style.errorsP}>El campo No puede llevar números ni cararcteres especiales</p>}
+                {errors.name?.type === 'maxLength' && <p className={style.errorsP}>El campo no puede superar 20 caracteres</p>}
+                {errors.name?.type === 'minLength' && <p className={style.errorsP}>El campo no puede ser menor a 3 caracteres</p>} 
       
  
            <input className='inputEmail'
                type="text" 
                placeholder="Email" 
-               name="email"
-               required 
-               value={email}
-               onChange={handleChangeCorreo} 
+               {...register('email', { 
+                required: true,
+                pattern: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+                 })}
               /> 
-              
+              {errors.email?.type === 'required' && <p className={style.errorsP}>El campo es obligatorio</p>}
+              {errors.email?.type === 'pattern' && <p className={style.errorsP}>El correo electrónico debe empezar por el nombre del usuario, Seguido por el símbolo de la arroba '@' y Por último el nombre del dominio del correo. ejemplo: usuario@dominio.com</p>}
            
            <input className='inputPass'
                type="password" 
                placeholder="Contraseña" 
-               name="contrasena"
-               required
-               value={password}
-               onChange={handleChangeContrasena}
+               {...register('password', { 
+                required: true,
+                pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/,
+                 })}
                />
-          
+               {errors.password?.type === 'required' && <p className={style.errorsP}>El campo es obligatorio</p>}
+               {errors.password?.type === 'pattern' && <p className={style.errorsP}>La contraseña debe llevar al menos una letra minuscula, una mayuscula, un número, contener al menos 6 caracteres y no permite espacios</p>}
  
            <button type='submit' className={style.buttonEnviar}> crear cuenta </button>
          </form>
@@ -140,6 +87,9 @@ function CrearCuenta() {
  }
  
  export default CrearCuenta
+
+
+
 
 
 
